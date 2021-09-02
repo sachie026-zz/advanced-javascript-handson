@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    // We are using closure here to hide the counter variable from the outside world.
+    // IIFE : function wrapped in () with appended () to call it.
+    const incrementCounter = (function (){
+        var counter = 0;
+        return function() {
+            return ++counter;
+        }
+    })();
+
+    console.log(incrementCounter()); // output : 1
+    console.log(incrementCounter()); // output : 2
+    console.log(incrementCounter()); // output : 3
+
+  </script>
+</html>
