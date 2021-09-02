@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    var studentsCollection = (function () {
+      var maxStudents;
+
+      function initialize(value) {
+        this.roomNumber = value * 10;
+        this.floor = value / 10;
+      }
+      // public members
+      return {
+        setMaxLimit: function (value) {
+          if (maxStudents === undefined) {
+            maxStudents = new initialize(value);
+          }
+          return maxStudents;
+        },
+      };
+    })();
+
+   var singleTonObject1 = studentsCollection.setMaxLimit(30);
+   console.log(singleTonObject1);
+   // returns { floor: 3, roomNumber: 300 }
+   var singleTonObject2 = studentsCollection.setMaxLimit(50);
+   console.log(singleTonObject2);
+   // returns { floor: 3, roomNumber: 300 }.
+   // same instance for both
+  </script>
+</html>
