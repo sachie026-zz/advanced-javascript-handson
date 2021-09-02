@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    // We are using closure here to hide the counter variable from the outside world.
+    // IIFE : function wrapped in () with appended () to call it.
+    const collection = (function () {
+      var arr = [];
+      return {
+        addElement: function (element) {
+          arr.push(element);
+        },
+        removeElement: function (element) {
+          let index = arr.indexOf(element);
+          return arr.splice(index, 1);
+        },
+        getElement: function (index) {
+          return arr[index];
+        },
+        getCollection: function () {
+          return arr;
+        },
+      };
+    })();
+
+    collection.addElement(1);
+    collection.addElement(2);
+    collection.addElement(3);
+    console.log("Collection: ", collection.getCollection());
+    // output : [1, 2, 3]
+    collection.removeElement(2);
+    console.log("Collection: ", collection.getCollection());
+    // output : [1, 3]
+  </script>
+</html>
