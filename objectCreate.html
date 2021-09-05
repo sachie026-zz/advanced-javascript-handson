@@ -20,7 +20,13 @@
 
     delete newObj.one;
 
+
+    newObj['four'] = 4;
+
     console.log("newObj", newObj);
+
+    // in the above example four is normal propery which is not added to __proto__
+
     console.log("newObj", newObj.one);
     // console will still print all the propoerties in __proto__
 

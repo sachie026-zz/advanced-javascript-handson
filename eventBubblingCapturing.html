@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>
+      hello div!
+      <ul>
+        hello ul!
+        <li>hello li!</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // when capturing is true for any evend handler then that handlers runs in a caprturing phase
+    let mainDiv = document.querySelector("div");
+    let ulDiv = document.querySelector("ul");
+    let liDiv = document.querySelector("li");
+
+    console.log("mainDiv ulDiv liDiv", mainDiv, ulDiv, liDiv);
+
+    mainDiv.addEventListener(
+      "click",
+      function () {
+        console.log("main div clicked");
+      },
+      true
+    ); // capturing is true
+
+    ulDiv.addEventListener("click", function () {
+      console.log("ul clicked");
+    });
+
+    liDiv.addEventListener("click", function () {
+      console.log("li clicked");
+    });
+  </script>
+</html>
