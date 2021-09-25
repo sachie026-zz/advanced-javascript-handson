@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>JavaScript Array Filter method!</div>
+  </body>
+  <script>
+    const data = [
+      {
+        name: "maths",
+        mark: 100,
+      },
+      {
+        name: "english",
+        mark: 88,
+      },
+      {
+        name: "hindi",
+        mark: 95,
+      },
+      {
+        name: "marathi",
+        mark: 89,
+      },
+    ];
+
+    const getSubjectWithNinetyPlusMarks = () => {
+      return data.filter((subject) => subject.mark > 90);
+    };
+
+    Array.prototype.FilterForArrayOfObjects = function (callback) {
+      const result = [];
+      this.forEach((item) => {
+        if (callback(item)) result.push(item);
+      });
+      return result;
+    };
+
+    console.log(
+      "getSubjectWithNinetyPlusMarks",
+      getSubjectWithNinetyPlusMarks()
+    );
+
+    console.log(
+      "FilterForArrayOfObjects",
+      data.FilterForArrayOfObjects((val) => val.mark > 95)
+    );
+  </script>
+</html>

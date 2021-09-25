@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>JavaScript Hoisting!</div>
+  </body>
+  <script>
+    test();
+    function test() {
+      x = 10;
+      console.log(hello); // output: undefined
+      // because not defined yet but hoisting has been done for this variable
+
+      console.log(x); // output: 10, we have not declared yet but with hoisting declaration has been done already
+      var hello = "hello world!";
+    }
+  </script>
+</html>

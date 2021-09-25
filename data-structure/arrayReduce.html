@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>JavaScript Array Reduce method!</div>
+  </body>
+  <script>
+    const data = [
+      {
+        name: "maths",
+        mark: 100,
+      },
+      {
+        name: "english",
+        mark: 88,
+      },
+      {
+        name: "hindi",
+        mark: 95,
+      },
+      {
+        name: "marathi",
+        mark: 89,
+      },
+    ];
+
+    const getTotalMarks = () => {
+      return data.reduce((prev, current) => prev + current.mark, 0);
+    };
+
+    const getAvgMArks = () => {
+      return (
+        data.reduce((prev, current) => prev + current.mark, 0) / data.length
+      );
+    };
+
+    const getSubjectWithHighestMarks = () => {
+      const subject = data.reduce(
+        (prev, current) => (prev.mark > current.mark ? prev : current),
+        {}
+      );
+
+      return subject;
+    };
+
+    const getSubjectWithNinetyPlusMarks = () => {};
+
+    console.log("getTotalMarks", getTotalMarks());
+    console.log("getAvgMArks", getAvgMArks());
+    console.log("getSubjectWithHighestMarks", getSubjectWithHighestMarks());
+  </script>
+</html>

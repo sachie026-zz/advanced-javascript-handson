@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>JavaScript Hoisting!</div>
+    <button>Hit me!</button>
+  </body>
+  <script>
+    function listener1() {
+      setTimeout(() => {
+        console.log("listener1 setTimeout 1");
+      }, 0);
+      console.log("listener1 console1");
+      Promise.resolve(console.log("listener1 promise"));
+    }
+
+    function listener2() {
+      setTimeout(() => {
+        console.log("listener2 setTimeout 1");
+      }, 0);
+      console.log("listener2 console1");
+      Promise.resolve(console.log("listener2 promise"));
+    }
+
+    let button = document.querySelector("button");
+    button.addEventListener("click", listener1);
+    button.addEventListener("click", listener2);
+
+    /*
+    
+    console printed first and setTimeout was added to the event queue as a asyn task
+    then promise for both listeners 
+
+    Settime
+    
+    output:
+    listener1 console1
+    eventLoop.html:51 listener1 promise
+
+    eventLoop.html:58 listener2 console1
+    eventLoop.html:59 listener2 promise
+    eventLoop.html:48 listener1 setTimeout 1
+    eventLoop.html:56 listener2 setTimeout 1
+    */
+  </script>
+</html>

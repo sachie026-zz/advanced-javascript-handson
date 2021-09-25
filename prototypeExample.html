@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div>JavaScript Prototype!</div>
+  </body>
+  <script>
+    function Sample() {
+      var a = 10;
+      const b = 1;
+    }
+
+    const instance = new Sample();
+
+    var tempObj = {
+      test: 1
+    }
+
+    // function has prototype as well as __proto__
+    // prototype property refers the own context
+    // __proto__ refers to the parent prototype
+    console.log("sample proto prop: ", Sample.prototype);
+    console.log("sample proto prop: ", instance);
+
+    console.log("temp obj: ", tempObj);
+    // you wont see the __proto__ property for object here
+
+
+
+    // example 2
+    function Animal(){}
+
+    // static method
+    Animal.eat = function(){
+      return this;
+    }
+
+    // prototype method
+    Animal.prototype.speak = function(){
+      return this;
+    }
+
+    const obj = new Animal();
+    console.log(obj.speak());
+    console.log(Animal.eat());
+  </script>
+</html>
